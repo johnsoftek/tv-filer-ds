@@ -2,12 +2,12 @@
  * Created by john on 23/11/2013.
  */
 
-var encode_chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-'.split('')
+const encode_chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-'.split('')
 
 exports.encode = function(s) {
   // the result/encoded string, the padding string, and the pad count
-  var r = ''
-  var c = s.length % 3
+  let r = ''
+  let c = s.length % 3
 
   // add a right zero pad to make this string a multiple of 3 characters
   if (c > 0) {
@@ -19,7 +19,7 @@ exports.encode = function(s) {
   // increment over the length of the string, three characters at a time
   for (c = 0; c < s.length; c += 3) {
     // these three 8-bit (ASCII) characters become one 24-bit number
-    var n = (s.charCodeAt(c) << 16) + (s.charCodeAt(c + 1) << 8) + s.charCodeAt(c + 2)
+    let n = (s.charCodeAt(c) << 16) + (s.charCodeAt(c + 1) << 8) + s.charCodeAt(c + 2)
 
     // this 24-bit number gets separated into four 6-bit numbers
     n = [(n >>> 18) & 63, (n >>> 12) & 63, (n >>> 6) & 63, n & 63]

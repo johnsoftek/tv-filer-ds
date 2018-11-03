@@ -1,13 +1,13 @@
 /**
  * Created by john on 8/11/14.
  */
-var Q = require('q')
+const Q = require('q')
 
 module.exports = function(array, fn) {
-  var dfd = Q.defer()
-  var index = 0
+  const dfd = Q.defer()
+  let index = 0
   ;(function next() {
-    var item = array[index]
+    const item = array[index]
     if (index >= array.length) {
       dfd.resolve()
       return

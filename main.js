@@ -1,32 +1,31 @@
+const Q = require('q')
 
-let Q = require('q')
+const fs = require('fs')
 
-let fs = require('fs')
+const config = require('./config/config')
 
-let config = require('./config/config')
+const files = require('./model/files')
 
-let files = require('./model/files')
+const wl = require('./model/watchlist')
 
-let wl = require('./model/watchlist')
-
-let qEach = require('./model/qEach')
+const qEach = require('./model/qEach')
 ;(function check_files() {
   // Move files from download directory to new tv directory
   // Rename files e.g. Series, Season, Episode
   files.collect_new()
 
-  Q.denodeify(fs.readdir)(config.new_media_temp_dir).then(function(newtv_filenames) {
+  Q.denodeify(fs.readdir)(config.new_media_temp_dir).then(newtv_filenames => {
     // execute function list
     // If an episode is not in the watch list, add it
 
     console.log(newtv_filenames)
     qEach(newtv_filenames, wl.register_file).then(
-      function() {
+      () => {
         files.move_to_tree()
-        console.log('Refreshed list at ' + new Date())
+        console.log(`Refreshed list at ${new Date()}`)
         process.exit(0)
       },
-      function(err) {
+      err => {
         console.log('Error adding episodes to database: ', err)
         process.exit(1)
       }

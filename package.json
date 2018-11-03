@@ -1,0 +1,19 @@
+{
+  "name": "tv-filer",
+  "description": "Web server - show tv watch list",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "git clone https://github.com/johnsoftek/tvnamer.git && mkdir log",
+    "build-tvnamer": "python setup.py install",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "base64-js": "0.0.x",
+    "execSync": "1.0.x",
+    "firebase": "1.1.x",
+    "q": "1.0.x",
+    "underscore": "1.7.x",
+    "unirest": "^0.2.9"
+  }
+}

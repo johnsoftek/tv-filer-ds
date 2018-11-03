@@ -2,7 +2,7 @@
  * Created by john on 13/12/2013.
  */
 
-exports = module.exports = {
+module.exports = {
   collect_new: collect_new,
   move_to_tree: move_to_tree
 }

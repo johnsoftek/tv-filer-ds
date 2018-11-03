@@ -2,28 +2,27 @@
  * Created by john on 7/12/2013.
  */
 
-var axios = require('axios'),
-  hash_id = require('./hash-id'),
-  config = require('../config/config'),
-  Q = require('q')
+let axios = require('axios')
 
-exports = module.exports = {
-  register_file: register_file
-}
+let hash_id = require('./hash-id')
+
+let config = require('../config/config')
+
+let Q = require('q')
 
 function register_file(filename) {
-  var deferred = Q.defer()
-  var file_id = hash_id.encode(filename.toLowerCase()) // get safe id
+  let deferred = Q.defer()
+  let file_id = hash_id.encode(filename.toLowerCase()) // get safe id
 
   axios
     .post(
-      'http://' + config.rest_url + '/api/episodes/registerfile',
-      { filename: filename },
+      `http://${config.rest_url}/api/episodes/registerfile`,
+      { filename },
       {
         headers: { Accept: 'application/json' }
       }
     )
-    .then(function(response) {
+    .then(response => {
       if (response.status === 200 || response.status === 204) {
         deferred.resolve(response.body)
       } else {
@@ -37,4 +36,8 @@ function register_file(filename) {
     })
 
   return deferred.promise
+}
+
+module.exports = {
+  register_file
 }

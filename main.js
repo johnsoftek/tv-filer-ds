@@ -1,10 +1,15 @@
-var _ = require('underscore'),
-  Q = require('q'),
-  fs = require('fs'),
-  config = require('./config/config'),
-  files = require('./model/files'),
-  wl = require('./model/watchlist'),
-  qEach = require('./model/qEach')
+
+let Q = require('q')
+
+let fs = require('fs')
+
+let config = require('./config/config')
+
+let files = require('./model/files')
+
+let wl = require('./model/watchlist')
+
+let qEach = require('./model/qEach')
 ;(function check_files() {
   // Move files from download directory to new tv directory
   // Rename files e.g. Series, Season, Episode

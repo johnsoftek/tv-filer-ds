@@ -2,3 +2,4 @@ node_modules/
 tvnamer/
 .vscode
 log/
+.vscode/

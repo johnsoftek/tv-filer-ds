@@ -4,6 +4,7 @@
 
 var axios = require('axios'),
   hash_id = require('./hash-id'),
+  config = require('../config/config'),
   Q = require('q');
 
 exports = module.exports = {
@@ -14,7 +15,7 @@ function register_file(filename) {
   var deferred = Q.defer();
   var file_id = hash_id.encode(filename.toLowerCase()); // get safe id
 
-  axios.post('http://127.0.0.1:3000/api/episodes/registerfile',
+  axios.post('http://' + config.rest_url + '/api/episodes/registerfile',
     { 'filename': filename },
     {
       headers: { 'Accept': 'application/json' }

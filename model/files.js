@@ -10,7 +10,7 @@ exports = module.exports = {
 
 var sh = require('child_process')
   config = require('../config/config'),
-  tvnamer = 'python tvnamer/main.py';
+  tvnamer = config.tvnamer;
 //  tvnamer = config.tvnamer_bindir + '/tvnamer';
 
 function collect_new() {

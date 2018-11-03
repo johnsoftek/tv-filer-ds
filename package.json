@@ -6,7 +6,8 @@
   "scripts": {
     "build": "git clone https://github.com/johnsoftek/tvnamer.git && mkdir log",
     "build-tvnamer": "python setup.py install",
-    "start": "node server.js"
+    "start": "node server.js",
+    "prettier": "prettier --write '**/*.js'"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -14,5 +15,11 @@
     "execSync": "1.0.x",
     "q": "1.5.x",
     "underscore": "1.9.x"
-  }
+  },
+  "prettier": {
+    "trailingComma": false,
+    "semi": false,
+    "singleQuote": true,
+    "printWidth": 120
+	}
 }

@@ -14,7 +14,7 @@
     "base64-js": "1.3.x",
     "execSync": "1.0.x",
     "q": "1.5.x",
-    "underscore": "1.9.x"
+    "underscore": "1.12.x"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
